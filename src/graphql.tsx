@@ -20,28 +20,9 @@ export enum Gender {
   Unknown = 'UNKNOWN'
 }
 
-export type Login = {
-  __typename?: 'Login';
-  hasPhone: Scalars['Boolean'];
-  hasUser: Scalars['Boolean'];
-  token: Scalars['String'];
-};
-
-export type LoginInput = {
-  code: Scalars['String'];
-};
-
 export type Mutation = {
   __typename?: 'Mutation';
-  login: Login;
   updateUser: User;
-  weappUpdatePhone: User;
-  weappUpdateUser: User;
-};
-
-
-export type MutationLoginArgs = {
-  data: LoginInput;
 };
 
 
@@ -49,31 +30,13 @@ export type MutationUpdateUserArgs = {
   data: UpdateUserInput;
 };
 
-
-export type MutationWeappUpdatePhoneArgs = {
-  data: WeappUpdateUserInput;
-};
-
-
-export type MutationWeappUpdateUserArgs = {
-  data: WeappUpdateUserInput;
-};
-
 export type Query = {
   __typename?: 'Query';
   findUser: User;
-  weappRefreshSessionKey: Scalars['Boolean'];
-  weappRefreshToken: RefreshToken;
-};
-
-export type RefreshToken = {
-  __typename?: 'RefreshToken';
-  token?: Maybe<Scalars['String']>;
 };
 
 export type UpdateUserInput = {
   avatarUrl?: Maybe<Scalars['String']>;
-  birthday?: Maybe<Scalars['String']>;
   gender?: Maybe<Gender>;
   nickName?: Maybe<Scalars['String']>;
 };
@@ -81,14 +44,8 @@ export type UpdateUserInput = {
 export type User = {
   __typename?: 'User';
   avatarUrl?: Maybe<Scalars['String']>;
-  birthday?: Maybe<Scalars['String']>;
   gender?: Maybe<Gender>;
   nickName?: Maybe<Scalars['String']>;
-};
-
-export type WeappUpdateUserInput = {
-  encryptedData: Scalars['String'];
-  iv: Scalars['String'];
 };
 
 export type FindUserQueryVariables = Exact<{ [key: string]: never; }>;

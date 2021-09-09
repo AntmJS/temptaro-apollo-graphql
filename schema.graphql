@@ -8,48 +8,23 @@ enum Gender {
   UNKNOWN
 }
 
-type Login {
-  hasPhone: Boolean!
-  hasUser: Boolean!
-  token: String!
-}
-
-input LoginInput {
-  code: String!
-}
-
 type Mutation {
-  login(data: LoginInput!): Login!
   updateUser(data: UpdateUserInput!): User!
-  weappUpdatePhone(data: WeappUpdateUserInput!): User!
-  weappUpdateUser(data: WeappUpdateUserInput!): User!
 }
 
 type Query {
   findUser: User!
-  weappRefreshSessionKey: Boolean!
-  weappRefreshToken: RefreshToken!
-}
-
-type RefreshToken {
-  token: String
 }
 
 input UpdateUserInput {
   avatarUrl: String
-  birthday: String
   gender: Gender
   nickName: String
 }
 
 type User {
   avatarUrl: String
-  birthday: String
   gender: Gender
   nickName: String
 }
 
-input WeappUpdateUserInput {
-  encryptedData: String!
-  iv: String!
-}
